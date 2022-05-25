@@ -4,6 +4,7 @@ import ContestForm from "./Contestformpage/ContestForm"
 import Contact from "./contactpage/Contact";
 import Home from "./HomePage/Home";
 import Login from "./auth/Login";
+import Signup from "./auth/Signup";
 
 const NavBar = ({ contests }) => {
   return (
@@ -44,6 +45,7 @@ const NavBar = ({ contests }) => {
             <Route exact path="/contestform" element={<ContestForm />} />
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
           </Routes>
         </div>
       </Router>
