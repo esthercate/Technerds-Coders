@@ -6,6 +6,7 @@ import Footer from '../Footer';
 
 
 const Home = ({ contests }) => {
+ 
   return (
     <div>
       <Hero />

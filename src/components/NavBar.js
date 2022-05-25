@@ -6,7 +6,8 @@ import Home from "./HomePage/Home";
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
 
-const NavBar = ({ contests }) => {
+const NavBar = ({ contests, onAddNewContest }) => {
+  
   return (
     <div>
       <Router>
@@ -22,7 +23,7 @@ const NavBar = ({ contests }) => {
                   <NavLink to="/">Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to="/contestform">Schedule Contest</NavLink>
+                  <NavLink to="/contestform">Create Contest</NavLink>
                 </li>
                 <li>
                   <NavLink to="/contact">Contact</NavLink>
@@ -30,19 +31,18 @@ const NavBar = ({ contests }) => {
               </ul>
             </div>
 
-            <div className="p-6">
-              <NavLink
-                to="/contestform"
-                className="text-secondary cursor-pointer"
-              >
-                Dashboard
-              </NavLink>
+            <div className="p-6 text-secondary">
+              <NavLink to="/login"> Logout </NavLink>
             </div>
           </nav>
 
           <Routes>
             <Route exact path="/" element={<Home contests={contests} />} />
-            <Route exact path="/contestform" element={<ContestForm />} />
+            <Route
+              exact
+              path="/contestform"
+              element={<ContestForm onAddNewContest={onAddNewContest} />}
+            />
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />

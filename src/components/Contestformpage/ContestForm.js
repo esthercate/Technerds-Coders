@@ -1,14 +1,12 @@
 import React from 'react';
 import ContestHero from './ContestHero';
-import MyContests from './MyContests';
 import Footer from "../Footer";
 
 
-const ContestForm = () => {
+const ContestForm = ({ onAddNewContest }) => {
   return (
     <div>
-      <ContestHero />
-      <MyContests />
+      <ContestHero onAddNewContest={onAddNewContest} />
       <Footer />
     </div>
   );

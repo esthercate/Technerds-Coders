@@ -12,9 +12,16 @@ const App = () => {
       .then((contestsData) => setContests(contestsData));
   }, []);
 
+  function handleNewContest(formData){
+    setContests([
+      formData,
+      ...contests
+    ])
+  }
+
   return (
     <div>
-      <NavBar contests={contests} />
+      <NavBar contests={contests} onAddNewContest={handleNewContest} />
     </div>
   );
 };

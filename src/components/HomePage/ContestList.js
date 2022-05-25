@@ -27,9 +27,9 @@ const ContestList = ({ contests }) => {
       <div className="md:flex justify-items-center w-full">
         {/* Contest listing section */}
 
-        <div className="w-full md:w-4/6">
+        <div className="w-full">
           {contests.map((contest) => (
-            <div className="bg-navbg mx-10 md:mx-20 my-3 md:flex rounded-md p-1 md:p-6">
+            <div key={contest.id} className="bg-navbg bg-opacity-30 mx-10 md:mx-20 my-3 md:flex rounded-md p-1 md:p-6">
               <div className="date w-full md:w-1/6 md:border-r-2 border-secondary p-8">
                 <h3 className="opacity-90 font-bold">
                 {contest.start_time.slice(0,10)}
@@ -66,17 +66,17 @@ const ContestList = ({ contests }) => {
 
         {/* Contests hosting sites */}
 
-        <div className="w-3/4 md:w-2/6 text-center md:text-left bg-navbg bg-opacity-40 p-3 rounded-md ml-12 mb-12 md:mr-12">
+        <div className="w-1/4 mr-10">
           <div>
             <h3 className="text-secondary opacity-90 text-center text-lg">
               Top Contest Hosting Sites
             </h3>
           </div>
 
-          <div>
+          <div className="text-center">
             <div className="m-5">
               <img
-                className="w-3/4 md:w-1/2 h-32"
+                className="w-full h-32 rounded-md"
                 src={codeforcelogo}
                 alt="CodeForces Logo"
               />
@@ -84,7 +84,7 @@ const ContestList = ({ contests }) => {
             </div>
             <div className="m-5">
               <img
-                className="w-3/4 md:w-1/2 h-40 md:h-32"
+                className="w-full h-40 md:h-32 rounded-md"
                 src={topcoderlogo}
                 alt="TopCoder Logo"
               />
@@ -92,7 +92,7 @@ const ContestList = ({ contests }) => {
             </div>
             <div className="m-5">
               <img
-                className="w-3/4 md:w-1/2 h-32"
+                className="w-full h-32 rounded-md"
                 src={leetcodelogo}
                 alt="LeetCode Logo"
               />
@@ -100,7 +100,7 @@ const ContestList = ({ contests }) => {
             </div>
             <div className="m-5">
               <img
-                className="w-3/4 md:w-1/2 h-32"
+                className="w-full h-32 rounded-md"
                 src={hackerranklogo}
                 alt="HackerRank Logo"
               />
