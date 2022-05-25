@@ -1,6 +1,10 @@
-import React, {useState} from 'react';
-import {createUserWithEmailAndPassword, onAuthStateChanged, signOut} from "firebase/auth";
-import { auth, Auth } from "../../firebase-config/firebase-config";
+import React, {useEffect, useState} from 'react';
+import {
+  createUserWithEmailAndPassword, 
+  onAuthStateChanged, 
+  signInWithEmailAndPassword, 
+  signOut} from "firebase/auth";
+import { auth} from "../../firebase-config/firebase-config";
 
 const Login = () => {
 
@@ -12,11 +16,12 @@ const Login = () => {
 
   const [user,setUser] = useState({});
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
+  
   const register = async () => {
     try {
       const user =  await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
@@ -26,17 +31,28 @@ const Login = () => {
     }
   };
 
-  const login = async () => {};
+  const login = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   const logout = async () => {
-    await signOut()
+    await signOut(auth)
   };
 
   return (
     <div className="m-14 h-auto flex">
       <div className="bg-navbg bg-opacity-70 p-10 m-auto sm:w-3/4 md:w-1/2 lg:w-1/2 rounded-md">
         <h1 className="text-secondary text-center text-xl font-bold">Signup</h1>
-        <form className="text-center">
+        <div className="text-center">
           <input
             className="m-4"
             type="email"
@@ -61,14 +77,14 @@ const Login = () => {
             Dont have an account? Click here to{" "}
             <span className="text-secondary">Signup</span>
           </p>
-          <button>signOut</button>
-       
-        </form>
+          <button onClick={logout}>signOut</button>
+        </div>
+        <h1>Im logged in: {user?.email}</h1>
       </div>
 
       <div className="bg-navbg bg-opacity-70 p-10 m-auto sm:w-3/4 md:w-1/2 lg:w-1/2 rounded-md ml-4">
         <h1 className="text-secondary text-center text-xl font-bold">Login</h1>
-        <form className="text-center">
+        <div className="text-center">
           <input
             className="m-4"
             type="email"
@@ -90,9 +106,11 @@ const Login = () => {
           <button className="m-4 w-1/2 md:w-1/4 p-4">Login</button>
           <p className="opacity-80 p-5 text-sm">
             Dont have an account? Click here to{" "}
-            <span className="text-secondary">Login</span>
+            <span className="text-secondary" onClick={login}>
+              Login
+            </span>
           </p>
-        </form>
+        </div>
       </div>
     </div>
   );
