@@ -8,8 +8,6 @@ import { auth} from "../../firebase-config/firebase-config";
 
 const Login = () => {
 
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -22,14 +20,6 @@ const Login = () => {
     });
   }, []);
   
-  const register = async () => {
-    try {
-      const user =  await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   const login = async () => {
     try {
@@ -44,9 +34,11 @@ const Login = () => {
     }
   };
 
-  const logout = async () => {
+  {
+    /*const logout = async () => {
     await signOut(auth)
-  };
+  };*/
+}
 
   return (
     <div className="m-14 h-auto">
@@ -73,9 +65,9 @@ const Login = () => {
           <br />
           <button className="m-4 w-1/2 md:w-1/4 p-4">Login</button>
           <p className="opacity-80 p-5 text-sm">
-            Dont have an account? Click here to{" "}
-            <span className="text-secondary font-bold" onClick={login}>
-              Signup
+            Don't have an account? Click here to{" "}
+            <span className="text-secondary font-bold cursor-pointer" onClick={login}>
+              <a href="/signup"> Signup</a>
             </span>
           </p>
         </div>

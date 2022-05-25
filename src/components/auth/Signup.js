@@ -11,9 +11,6 @@ const Signup = () => {
 const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
 
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-
   const [user,setUser] = useState({});
 
   useEffect(() => {
@@ -31,18 +28,6 @@ const [registerEmail, setRegisterEmail] = useState("");
     }
   };
 
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
 
   const logout = async () => {
     await signOut(auth)
@@ -75,7 +60,9 @@ const [registerEmail, setRegisterEmail] = useState("");
           </button>
           <p className="opacity-80 p-5 text-sm">
             Already have an account? Click here to{" "}
-            <span className="text-secondary font-bold">Login</span>
+            <span className="text-secondary font-bold cursor-pointer">
+              <a href="/login">Login</a>
+            </span>
           </p>
           <button onClick={logout}>signOut</button>
         </div>
