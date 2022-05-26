@@ -14,8 +14,11 @@ module.exports = {
       white: "#ffffff",
     },
     extend: {
+      fontFamily: {
+        Poppins: ["Poppins", "sans-serif"],
+      },
       backgroundImage: {
-        "hero-image":"url('./assets/hero.jpg')",
+        "hero-image": "url('./assets/hero.jpg')",
         "nextpage-bg": "url('./assets/nextpage.jpg')",
         "contestHero-bg": "url('./assets/newcontest.jpg')",
       },

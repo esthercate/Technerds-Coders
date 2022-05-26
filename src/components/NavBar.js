@@ -9,6 +9,7 @@ import {FiMenu, FiX} from "react-icons/fi"
 
 const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
   const [nav, setNav] =useState(false);
+  
 
   function handleClick(){
     setNav(!nav)
