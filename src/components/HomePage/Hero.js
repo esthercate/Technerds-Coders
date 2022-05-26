@@ -15,8 +15,8 @@ const Hero = () => {
           </p>
         </div>
         <div className="mx-4">
-          <button className="p-5 m-5">Upcoming Contest</button>
-          <button className="p-5 m-5">Create Contest</button>
+          <button className="p-4 m-5">Upcoming Contest</button>
+          <button className="p-4 m-5">Create Contest</button>
         </div>
       </div>
     </>
