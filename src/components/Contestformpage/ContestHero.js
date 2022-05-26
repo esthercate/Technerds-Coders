@@ -31,7 +31,7 @@ const ContestHero = ({ onAddNewContest }) => {
       <div className="md:flex px-3 py-16 bg-contestHero-bg bg-cover bg-right bg-no-repeat bg-local w-full h-auto">
         <div className="w-0 md:w-1/3"></div>
         <div className="h-auto w-4/5 md:w-2/3 bg-navbg bg-opacity-70 rounded-md mx-14">
-          <h4 className="text-xl text-center text-secondary p-8">
+          <h4 className="text-xl text-center text-secondary p-8 font-bold">
             Create Contest
           </h4>
           <form className="mx-3 md:mx-16 pb-3" onSubmit={handleSubmit}>
