@@ -5,7 +5,6 @@ import Contact from "./contactpage/Contact";
 import Home from "./HomePage/Home";
 import Login from "./auth/Login";
 import Signup from "./auth/Signup";
-import app from "../firebase-config/firebase-config"
 
 const NavBar = ({ contests, onAddNewContest }) => {
   
@@ -33,7 +32,7 @@ const NavBar = ({ contests, onAddNewContest }) => {
             </div>
 
             <div className="p-6 text-secondary">
-              <button onClick={() => app.auth().signOut}>Logout</button>
+              <a href="/login">Dashboard</a>
             </div>
           </nav>
 

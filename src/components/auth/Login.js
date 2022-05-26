@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {
-  createUserWithEmailAndPassword, 
   onAuthStateChanged, 
-  signInWithEmailAndPassword, 
-  signOut} from "firebase/auth";
+  signInWithEmailAndPassword} from "firebase/auth";
 import { auth} from "../../firebase-config/firebase-config";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
-
+  const nav = useNavigate();
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
@@ -28,17 +27,12 @@ const Login = () => {
         loginEmail,
         loginPassword
       );
+      nav("/");
       console.log(user);
     } catch (error) {
       console.log(error.message);
     }
   };
-
-  {
-    /*const logout = async () => {
-    await signOut(auth)
-  };*/
-}
 
   return (
     <div className="m-14 h-auto">
@@ -63,10 +57,12 @@ const Login = () => {
           />
 
           <br />
-          <button className="m-4 w-1/2 md:w-1/4 p-4">Login</button>
+          <button className="m-4 w-1/2 md:w-1/4 p-4" onClick={login}>
+            Login
+          </button>
           <p className="opacity-80 p-5 text-sm">
             Don't have an account? Click here to{" "}
-            <span className="text-secondary font-bold cursor-pointer" onClick={login}>
+            <span className="text-secondary font-bold cursor-pointer">
               <a href="/signup"> Signup</a>
             </span>
           </p>

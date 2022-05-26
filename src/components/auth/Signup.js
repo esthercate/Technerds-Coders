@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase-config/firebase-config";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const nav = useNavigate();
 const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
 
@@ -22,13 +23,12 @@ const [registerEmail, setRegisterEmail] = useState("");
   const register = async () => {
     try {
       const user =  await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
+      nav("/")
       console.log(user);
     } catch (error) {
       console.log(error.message);
     }
-    
   };
-
 
   const logout = async () => {
     await signOut(auth)
@@ -65,7 +65,6 @@ const [registerEmail, setRegisterEmail] = useState("");
               <a href="/login">Login</a>
             </span>
           </p>
-          <button onClick={logout}>signOut</button>
         </div>
       </div>
     </div>
