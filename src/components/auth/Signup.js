@@ -26,6 +26,7 @@ const [registerEmail, setRegisterEmail] = useState("");
     } catch (error) {
       console.log(error.message);
     }
+    
   };
 
 
@@ -66,7 +67,6 @@ const [registerEmail, setRegisterEmail] = useState("");
           </p>
           <button onClick={logout}>signOut</button>
         </div>
-        <h1>Im logged in: {user?.email}</h1>
       </div>
     </div>
   );
