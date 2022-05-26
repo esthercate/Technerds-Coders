@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import NavBar from "./NavBar";
 
 const App = () => {
-
   const [contests, setContests] = useState([]);
 
   useEffect(() => {
@@ -12,16 +11,24 @@ const App = () => {
       .then((contestsData) => setContests(contestsData));
   }, []);
 
-  function handleNewContest(formData){
-    setContests([
-      formData,
-      ...contests
-    ])
+  function handleNewContest(formData) {
+    setContests([formData, ...contests]);
+  }
+
+  function handleSearchChange(searchTerm) {
+    const searchOutput = contests.filter((contest) =>
+      contest.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setContests(searchOutput)
   }
 
   return (
     <div>
-      <NavBar contests={contests} onAddNewContest={handleNewContest} />
+      <NavBar
+        contests={contests}
+        onAddNewContest={handleNewContest}
+        onSearchChange={handleSearchChange}
+      />
     </div>
   );
 };

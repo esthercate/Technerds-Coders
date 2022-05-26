@@ -9,21 +9,25 @@ import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const nav = useNavigate();
-const [registerEmail, setRegisterEmail] = useState("");
+  const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
 
-  const [user,setUser] = useState({});
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
   }, []);
-  
+
   const register = async () => {
     try {
-      const user =  await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
-      nav("/")
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      nav("/");
       console.log(user);
     } catch (error) {
       console.log(error.message);
@@ -31,7 +35,7 @@ const [registerEmail, setRegisterEmail] = useState("");
   };
 
   const logout = async () => {
-    await signOut(auth)
+    await signOut(auth);
   };
 
   return (
@@ -69,6 +73,6 @@ const [registerEmail, setRegisterEmail] = useState("");
       </div>
     </div>
   );
-}
+};
 
 export default Signup;

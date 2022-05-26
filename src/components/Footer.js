@@ -2,10 +2,10 @@ import React from 'react'
 
 export const Footer = () => {
   return (
-    <div className='h-24 w-full bg-navbg text-center mb-0 p-10 text-secondary justify-center'>
+    <div className='h-24 w-full bg-navbg bg-opacity-50 text-center mb-0 p-10 text-secondary justify-center'>
       <p>Copyright © 2022. Designed by Catherine.</p>
     </div>
   );
 }
 
-export default Footer
+export default Footer;

@@ -5,13 +5,14 @@ import leetcodelogo from "../../assets/Leetcode.png";
 import hackerranklogo from "../../assets/Hackerrank.png";
 import { FaSearch } from "react-icons/fa";
 
-const ContestList = ({ contests }) => {
-  const [searchTerm, setSearchTearm] = useState("");
+const ContestList = ({ contests, onSearchChange }) => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  function handleSearch(event){
-    console.log(event.target.value)
-  }
-
+  function handleSearch(e) {
+    e.preventDefault();
+    onSearchChange(searchTerm);
+    setSearchTerm(" ")
+  };
 
   return (
     <div className="mt-10 md:mb-10">
@@ -21,14 +22,18 @@ const ContestList = ({ contests }) => {
           <h2 className="text-2xl font-bold m-6">Events & Contests</h2>
         </div>
         <div className="w-full md:w-1/2 mr-10">
-          <form className="flex mr-6">
+          <form className="flex mr-6" onSubmit={handleSearch}>
             <input
-              className="ml-6 bg-white border-2 rounded-md w-full pl-3 border-white text-primary text-xl"
+              className="ml-6 bg-white border-2 rounded-md w-full pl-3 border-white text-primary text-md"
               type="search"
               placeholder="Search by host site ..."
-              onChange={handleSearch}
+              id="searchTerm"
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button className="text-2xl px-8 rounded-none p-2">
+            <button
+              className="text-2xl px-8 bg-secondary rounded-none p-2"
+              type="submit"
+            >
               <FaSearch />
             </button>
           </form>
@@ -42,9 +47,9 @@ const ContestList = ({ contests }) => {
           {contests.map((contest) => (
             <div
               key={contest.id}
-              className="bg-navbg bg-opacity-30 mx-10 md:mx-20 my-3 md:flex rounded-md p-1 md:p-6"
+              className="bg-navbg bg-opacity-30 mx-10 md:mx-20 my-3 md:flex rounded-md p-1 md:p-4"
             >
-              <div className="date w-full md:w-1/6 md:border-r-2 border-secondary p-8">
+              <div className="date w-full md:w-1/6 md:border-r-2 border-secondary p-6 md:p-14">
                 <h3 className="opacity-90 font-bold">
                   {contest.start_time.slice(0, 10)}
                 </h3>
@@ -60,14 +65,14 @@ const ContestList = ({ contests }) => {
                 <p className="pb-2 opacity-80">
                   Duration: {contest.duration / 60} Minutes
                 </p>
-                <p className="opacity-80">Host: AtCoder</p>
-                <p className="opacity-80 text-secondary">
+                <p className="opacity-80 pb-2">Host: AtCoder</p>
+                <p className="opacity-80 ">
                   In_24_Hours: {contest.in_24_hours}{" "}
                   <span className="ml-6">Status: {contest.status}</span>
                 </p>
               </div>
               <div className="p-4">
-                <button className="w-36 p-5">
+                <button className="w-36 p-4 mx-3">
                   <a href={contest.url} target="_blank" rel="noreferrer">
                     Join Contest
                   </a>
@@ -94,7 +99,7 @@ const ContestList = ({ contests }) => {
                   src={codeforcelogo}
                   alt="CodeForces Logo"
                 />
-                <h2>CODEFORCES</h2>
+                <h2 className="p-3">CODEFORCES</h2>
               </div>
               <div className="m-5">
                 <img
@@ -102,7 +107,7 @@ const ContestList = ({ contests }) => {
                   src={topcoderlogo}
                   alt="TopCoder Logo"
                 />
-                <h2>TOPCODER</h2>
+                <h2 className="p-3">TOPCODER</h2>
               </div>
             </div>
             <div className="flex md:block">
@@ -112,7 +117,7 @@ const ContestList = ({ contests }) => {
                   src={leetcodelogo}
                   alt="LeetCode Logo"
                 />
-                <h2>LEETCODE</h2>
+                <h2 className="p-3">LEETCODE</h2>
               </div>
               <div className="m-5">
                 <img
@@ -120,7 +125,7 @@ const ContestList = ({ contests }) => {
                   src={hackerranklogo}
                   alt="HackerRank Logo"
                 />
-                <h2>HACKERRANK</h2>
+                <h2 className="p-3">HACKERRANK</h2>
               </div>
             </div>
           </div>
