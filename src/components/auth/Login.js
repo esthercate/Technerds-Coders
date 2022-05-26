@@ -28,7 +28,7 @@ const Login = () => {
         loginEmail,
         loginPassword
       );
-      nav("/");
+      nav("/home");
       console.log(user);
     } catch (error) {
       console.log(error.message);

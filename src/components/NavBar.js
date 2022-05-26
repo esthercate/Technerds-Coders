@@ -27,7 +27,7 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
             <div>
               <ul className="hidden md:flex">
                 <li className="hover:text-secondary">
-                  <NavLink to="/">Home</NavLink>
+                  <NavLink to="/home">Home</NavLink>
                 </li>
                 <li className="hover:text-secondary">
                   <NavLink to="/contestform">Create Contest</NavLink>
@@ -53,7 +53,7 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
           <div>
             <ul className={!nav ? "hidden" : "bg-navbg md:hidden w-full"}>
               <li className="border-b-2 border-primary hover:text-secondary">
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/home">Home</NavLink>
               </li>
               <li className="border-b-2 border-primary hover:text-secondary">
                 <NavLink to="/contestform">Create Contest</NavLink>
@@ -72,7 +72,7 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
           <Routes>
             <Route
               exact
-              path="/"
+              path="/home"
               element={
                 <Home contests={contests} onSearchChange={onSearchChange} />
               }
@@ -84,7 +84,7 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
             />
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/" element={<Signup />} />
           </Routes>
         </div>
       </Router>

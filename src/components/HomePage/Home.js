@@ -4,8 +4,7 @@ import ContestList from './ContestList';
 import NextPage from './NextPage';
 import Footer from '../Footer';
 
-const Home = ({ contests, onSearchChange,isSignedUp }) => {
-
+const Home = ({ contests, onSearchChange}) => {
   return (
     <div>
       <Hero />

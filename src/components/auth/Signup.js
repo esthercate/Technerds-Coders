@@ -27,7 +27,7 @@ const Signup = () => {
         registerEmail,
         registerPassword
       );
-      nav("/");
+      nav("/home");
       console.log(user);
     } catch (error) {
       console.log(error.message);
