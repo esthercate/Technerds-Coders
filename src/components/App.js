@@ -5,10 +5,11 @@ import NavBar from "./NavBar";
 const App = () => {
   const [contests, setContests] = useState([]);
 
+
   useEffect(() => {
-    fetch("https://kontests.net/api/v1/at_coder")
+    fetch("https://kontests.net/api/v1/all")
       .then((res) => res.json())
-      .then((contestsData) => setContests(contestsData));
+      .then((contestsData) => setContests(contestsData.slice(10, 30)));
   }, []);
 
   function handleNewContest(formData) {
@@ -17,7 +18,7 @@ const App = () => {
 
   function handleSearchChange(searchTerm) {
     const searchOutput = contests.filter((contest) =>
-      contest.name.toLowerCase().includes(searchTerm.toLowerCase())
+      contest.site.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setContests(searchOutput)
   }

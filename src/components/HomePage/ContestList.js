@@ -31,7 +31,7 @@ const ContestList = ({ contests, onSearchChange }) => {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button
-              className="text-2xl px-8 bg-secondary rounded-none p-2"
+              className="text-2xl w-20 px-8  bg-secondary rounded-none"
               type="submit"
             >
               <FaSearch />
@@ -65,7 +65,7 @@ const ContestList = ({ contests, onSearchChange }) => {
                 <p className="pb-2 opacity-80">
                   Duration: {contest.duration / 60} Minutes
                 </p>
-                <p className="opacity-80 pb-2">Host: AtCoder</p>
+                <p className="opacity-80 pb-2">{contest.site}</p>
                 <p className="opacity-80 ">
                   In_24_Hours: {contest.in_24_hours}{" "}
                   <span className="ml-6">Status: {contest.status}</span>
