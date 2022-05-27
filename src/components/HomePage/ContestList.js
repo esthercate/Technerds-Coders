@@ -19,7 +19,7 @@ const ContestList = ({ contests, onSearchChange }) => {
       {/* Search bar form */}
       <div className="md:flex justify-between ml-4 md:ml-16 mb-7 mr-6 md:mr-0">
         <div>
-          <h2 className="text-2xl font-bold m-6">Events & Contests</h2>
+          <h2 className="text-2xl font-bold m-6">Upcoming Contests</h2>
         </div>
         <div className="w-full md:w-1/2 mr-10">
           <form className="flex mr-6" onSubmit={handleSearch}>
