@@ -25,6 +25,7 @@ const ContestHero = ({ onAddNewContest }) => {
     event.preventDefault();
     onAddNewContest(formData);
   }
+  
 
   return (
     <>
@@ -52,8 +53,9 @@ const ContestHero = ({ onAddNewContest }) => {
               placeholder="Contest URL"
             />
             <div className="flex">
+             <br/>
               <input
-                className="mb-5 mr-2"
+                className="mb-5 mr-2 opacity-70"
                 type="datetime-local"
                 id="start_time"
                 value={formData.start_time}
@@ -61,7 +63,7 @@ const ContestHero = ({ onAddNewContest }) => {
                 placeholder="Start Time"
               />
               <input
-                className="mb-5 ml-2"
+                className="mb-5 ml-2 opacity-70"
                 type="datetime-local"
                 id="end_time"
                 value={formData.end_time}

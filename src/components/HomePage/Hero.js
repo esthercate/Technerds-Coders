@@ -5,7 +5,7 @@ const Hero = () => {
     <>
       <div className="h-3/4 p-10 md:p-28 bg-hero-image bg-cover justify-center bg-center bg-no-repeat bg-local w-full text-center">
         <div className="hero-content m-auto md:w-1/2 flex flex-col justify-start">
-          <h1 className="text-3xl text-center">
+          <h1 className="text-3xl text-center font-semibold">
             A smarter way to step up your coding game!
           </h1>
           <p className="text-lg m-5 md:px-10">
