@@ -7,9 +7,9 @@ const App = () => {
 
 
   useEffect(() => {
-    fetch("https://kontests.net/api/v1/all")
+    fetch("http://localhost:9292/contests")
       .then((res) => res.json())
-      .then((contestsData) => setContests(contestsData.slice(10, 30)));
+      .then((contestsData) => setContests(contestsData));
   }, []);
 
   function handleNewContest(formData) {

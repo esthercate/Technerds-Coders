@@ -2,14 +2,12 @@ import React, { useState } from "react";
 
 const ContestHero = ({ onAddNewContest }) => {
   const [formData, setFormData] = useState({
-    name: "",
+    contest_name: "",
     url: "",
     start_time: "",
     end_time: "",
     duration: "",
     site: "",
-    in_24_hours: "",
-    status: "",
   });
 
   function handleChange(event) {
@@ -87,24 +85,7 @@ const ContestHero = ({ onAddNewContest }) => {
               onChange={handleChange}
               placeholder="Hosting Website"
             />
-            <div className="flex">
-              <input
-                className="mb-5 mr-2"
-                type="text"
-                id="in_24_hours"
-                value={formData.in_24_hours}
-                onChange={handleChange}
-                placeholder="In_24_Hours: Yes/No"
-              />
-              <input
-                className="mb-5 ml-2"
-                type="text"
-                id="status"
-                value={formData.status}
-                onChange={handleChange}
-                placeholder="Status: Coding/Before"
-              />
-            </div>
+            
             <button className="w-1/2 md:w-1/4 p-5 mt-5">Post Contest</button>
           </form>
         </div>

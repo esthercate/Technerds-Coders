@@ -56,20 +56,17 @@ const ContestList = ({ contests, onSearchChange }) => {
               </div>
               <div className="info w-3/4 ml-5 p-2">
                 <h2 className="uppercase font-bold pb-2 opacity-90">
-                  {contest.name}
+                  {contest.contest_name}
                 </h2>
                 <h5 className="pb-2 opacity-80">
                   {contest.start_time.slice(11, 16)} -{" "}
                   {contest.end_time.slice(11, 16)}
                 </h5>
                 <p className="pb-2 opacity-80">
-                  Duration: {contest.duration / 60} Minutes
+                  Duration: {Math.floor(contest.duration / 60)} Minutes
                 </p>
-                <p className="opacity-80 pb-2">{contest.site}</p>
-                <p className="opacity-80 ">
-                  In_24_Hours: {contest.in_24_hours}{" "}
-                  <span className="ml-6">Status: {contest.status}</span>
-                </p>
+                <p className="opacity-80 pb-2">{contest.site.site_name}</p>
+                
               </div>
               <div className="p-4">
                 <button className="w-36 p-4 mx-3">
