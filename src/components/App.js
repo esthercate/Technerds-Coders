@@ -18,7 +18,7 @@ const App = () => {
 
   function handleSearchChange(searchTerm) {
     const searchOutput = contests.filter((contest) =>
-      contest.site.toLowerCase().includes(searchTerm.toLowerCase())
+      contest.hosting_website.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setContests(searchOutput)
   }

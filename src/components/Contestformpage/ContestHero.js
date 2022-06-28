@@ -7,8 +7,10 @@ const ContestHero = ({ onAddNewContest }) => {
     start_time: "",
     end_time: "",
     duration: "",
-    site: "",
+    hosting_website: "",
   });
+
+  
 
   function handleChange(event) {
     const key = event.target.id;
@@ -21,7 +23,16 @@ const ContestHero = ({ onAddNewContest }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onAddNewContest(formData);
+
+    fetch("http://localhost:9292/contests", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+    .then((r) => r.json())
+    .then((data) => onAddNewContest(data));
   }
   
 
@@ -37,8 +48,8 @@ const ContestHero = ({ onAddNewContest }) => {
             <input
               className="mb-5 w-full"
               type="text"
-              id="name"
-              value={formData.name}
+              id="contest_name"
+              value={formData.contest_name}
               onChange={handleChange}
               placeholder="Contest Name"
             />
@@ -80,8 +91,8 @@ const ContestHero = ({ onAddNewContest }) => {
             <input
               className="mb-5 w-full"
               type="text"
-              id="site"
-              value={formData.site}
+              id="hosting_website"
+              value={formData.hosting_website}
               onChange={handleChange}
               placeholder="Hosting Website"
             />

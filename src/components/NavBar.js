@@ -63,7 +63,7 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
                 <NavLink to="/contact">Contact</NavLink>
               </li>
               <li>
-                <a className="text-secondary" href="/login">
+                <a className="text-secondary" href="/contestform">
                   Dashboard
                 </a>
               </li>

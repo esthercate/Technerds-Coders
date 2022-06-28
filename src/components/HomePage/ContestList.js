@@ -65,7 +65,7 @@ const ContestList = ({ contests, onSearchChange }) => {
                 <p className="pb-2 opacity-80">
                   Duration: {Math.floor(contest.duration / 60)} Minutes
                 </p>
-                <p className="opacity-80 pb-2">{contest.site.site_name}</p>
+                <p className="opacity-80 pb-2">{contest.hosting_website}</p>
                 
               </div>
               <div className="p-4">
