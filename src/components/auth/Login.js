@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   return (
-    <div className="m-14 h-auto">
+    <div className="m-14 h-screen">
       <div className="bg-navbg bg-opacity-70 p-10 md:p-16 m-auto sm:w-3/4 md:w-1/2 lg:w-1/2 rounded-md">
         <h1 className="text-secondary text-center text-xl font-bold">Login</h1>
         <div className="text-center">

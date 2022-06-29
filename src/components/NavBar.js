@@ -4,6 +4,7 @@ import ContestForm from "./Contestformpage/ContestForm"
 import Contact from "./contactpage/Contact";
 import Home from "./HomePage/Home";
 import Login from "./auth/Login";
+import Dashboard from "./Dashboard";
 import Signup from "./auth/Signup";
 import {FiMenu, FiX} from "react-icons/fi"
 
@@ -38,9 +39,8 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
                 </li>
               </ul>
             </div>
-
             <div className="p-6 text-secondary hidden md:flex md:-mr-72">
-              <a href="/login">Dashboard</a>
+              <NavLink to="/dashboard">Dashboard</NavLink>
             </div>
             <div onClick={handleClick}>
               {!nav ? (
@@ -62,10 +62,8 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
               <li className="border-b-2 border-primary hover:text-secondary">
                 <NavLink to="/contact">Contact</NavLink>
               </li>
-              <li>
-                <a className="text-secondary" href="/contestform">
-                  Dashboard
-                </a>
+              <li className="border-b-2 border-primary text-secondary hover:text-white">
+                <NavLink to="/dashboard">Dashboard</NavLink>
               </li>
             </ul>
           </div>
@@ -84,6 +82,7 @@ const NavBar = ({ contests, onAddNewContest, onSearchChange }) => {
               element={<ContestForm onAddNewContest={onAddNewContest} />}
             />
             <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/" element={<Signup />} />
           </Routes>
