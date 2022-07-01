@@ -47,9 +47,9 @@ const ContestList = ({ contests, onSearchChange }) => {
           {contests.map((contest) => (
             <div
               key={contest.id}
-              className="bg-navbg bg-opacity-30 mx-10 md:mx-20 my-3 md:flex rounded-md p-1 md:p-4"
+              className="bg-navbg bg-opacity-30 mx-10 md:mx-20 my-3 md:flex rounded-md p-1 md:p-2"
             >
-              <div className="date w-full md:w-1/6 md:border-r-2 border-secondary p-6 md:p-14">
+              <div className="date w-full md:w-1/6 md:border-r-2 border-secondary p-6 md:p-8">
                 <h3 className="opacity-90 font-bold">
                   {contest.start_time.slice(0, 10)}
                 </h3>
@@ -63,7 +63,7 @@ const ContestList = ({ contests, onSearchChange }) => {
                   {contest.end_time.slice(11, 16)}
                 </h5>
                 <p className="pb-2 opacity-80">
-                  Duration: {Math.floor(contest.duration / 60)} Minutes
+                  Duration: {Math.floor(contest.duration)} Hours
                 </p>
                 <p className="opacity-80 pb-2">{contest.hosting_website}</p>
                 

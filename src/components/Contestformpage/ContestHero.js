@@ -33,8 +33,8 @@ const ContestHero = ({ onAddNewContest }) => {
     })
     .then((r) => r.json())
     .then((data) => onAddNewContest(data));
-  }
-  
+  }  
+
 
   return (
     <>
