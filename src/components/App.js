@@ -7,7 +7,7 @@ const App = () => {
 
 
   useEffect(() => {
-    fetch("http://localhost:9292/contests")
+    fetch("https://technerds-db.herokuapp.com/contests")
       .then((res) => res.json())
       .then((contestsData) => setContests(contestsData));
   }, []);

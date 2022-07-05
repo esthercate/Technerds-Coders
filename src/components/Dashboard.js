@@ -4,7 +4,7 @@ const Dashboard = () => {
   const [myContests, setMyContests] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9292/contests")
+    fetch("https://technerds-db.herokuapp.com/contests")
       .then((res) => res.json())
       .then((contestsData) => {
         setMyContests(contestsData);
@@ -13,7 +13,7 @@ const Dashboard = () => {
   }, []);
 
   function handleDelete(id) {
-    fetch(`http://localhost:9292/contests/${id}`, {
+    fetch(`https://technerds-db.herokuapp.com/contests/${id}`, {
       method: "DELETE",
     })
       .then((r) => r.json())

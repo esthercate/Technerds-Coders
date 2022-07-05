@@ -24,15 +24,15 @@ const ContestHero = ({ onAddNewContest }) => {
   function handleSubmit(event) {
     event.preventDefault();
 
-    fetch("http://localhost:9292/contests", {
+    fetch("https://technerds-db.herokuapp.com/contests", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     })
-    .then((r) => r.json())
-    .then((data) => onAddNewContest(data));
+      .then((r) => r.json())
+      .then((data) => onAddNewContest(data));
   }  
 
 
